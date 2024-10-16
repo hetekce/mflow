@@ -1,3 +1,1 @@
-# MLFLOW
-
-MLOps Tools: MLflow and Hugging Face
+# MLOps Tools: MLflow and Hugging Face
