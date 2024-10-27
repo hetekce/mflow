@@ -44,9 +44,9 @@ ml_project/
 
 - **Build Docker Image**:
 
-  ```sh
-  docker build -t my_ml_project_image .
-  ```
+```sh
+docker build -t my_ml_project_image .
+```
 
 - **Run MLflow Project Using Docker**:
 
@@ -56,21 +56,27 @@ Here’s how to run each entry point:
 
 - **Default entry point** (`main`):
   
-  ```sh
-  mlflow run . --env-manager docker
-  ```
+```sh
+mlflow run .
+```
+
+- **Default entry point with building a new image** (`main`):
+
+```sh
+mlflow run . --build-image
+```
 
 - **Specific entry points**:
 
   If you want to run, say, the `train` entry point, you can specify it like this:
 
-  ```sh
-  mlflow run . -e train --env-manager docker
-  ```
+```sh
+mlflow run . -e train
+```
 
   Similarly, you can specify `preprocess` or `evaluate` as entry points:
 
-  ```sh
-  mlflow run . -e preprocess --env-manager docker
-  mlflow run . -e evaluate --env-manager docker
-  ```
+```sh
+mlflow run . -e preprocess
+mlflow run . -e evaluate
+```

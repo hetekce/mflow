@@ -9,7 +9,7 @@ def preprocess_data(input_path, output_path):
     # Example preprocessing steps
     df.fillna(0, inplace=True)       # Fill missing values
     df = df.drop_duplicates()         # Remove duplicates
-    df = df[df['column_name'] > 0]    # Example filter (customize as needed)
+    df = df[df['spending_score'] > 35]    # Example filter (customize as needed)
 
     # Save preprocessed data
     df.to_csv(output_path, index=False)

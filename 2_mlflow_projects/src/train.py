@@ -9,8 +9,8 @@ import joblib
 def train_model(data_path, model_path, epochs):
     # Load preprocessed data
     df = pd.read_csv(data_path)
-    X = df.drop("target", axis=1)
-    y = df["target"]
+    X = df.drop("churn", axis=1)
+    y = df["churn"]
 
     # Split data
     X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)

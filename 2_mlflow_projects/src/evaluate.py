@@ -7,8 +7,8 @@ import joblib
 def evaluate_model(model_path, test_data_path):
     # Load test data
     df = pd.read_csv(test_data_path)
-    X_test = df.drop("target", axis=1)
-    y_test = df["target"]
+    X_test = df.drop("churn", axis=1)
+    y_test = df["churn"]
 
     # Load model
     model = joblib.load(model_path)

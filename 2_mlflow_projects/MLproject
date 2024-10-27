@@ -4,15 +4,21 @@ name: my_ml_project
 
 # Docker image to use for this project
 docker_env:
+  # image: 012345678910.dkr.ecr.us-west-2.amazonaws.com/mlflow-docker-example-environment:7.0 remote registry
   image: my_ml_project_image:latest
+  volumes: ["./:/app"]
+  # environment: [["NEW_ENV_VAR", "new_var_value"], "VAR_TO_COPY_FROM_HOST_ENVIRONMENT"]
 
 # Entry points define runnable commands with parameters
 entry_points:
   main:
-    command: "python src/main.py --data_path {data_path} --model_path {model_path}"
+    command: "python src/main.py --data_path {data_path} --model_path {model_path} --processed_data_path {processed_data_path} --test_data_path {test_data_path} --epochs {epochs}"
     parameters:
       data_path: {type: str, default: "./data/raw_data.csv"}
       model_path: {type: str, default: "./models/model.pkl"}
+      processed_data_path: {type: str, default: "./data/processed_data.csv"}
+      test_data_path: {type: str, default: "./data/test_data.csv"}
+      epochs: {type: int, default: 10}
 
   preprocess:
     command: "python src/preprocess.py --input_path {input_path} --output_path {output_path}"
