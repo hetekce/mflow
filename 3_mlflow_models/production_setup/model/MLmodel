@@ -1,0 +1,13 @@
+artifact_path: model
+flavors:
+  python_function:
+    cloudpickle_version: 2.2.0
+    loader_module: src.log_model  # It refers the LanguageSummarizer model in run_model.py
+    # loader_module: mlflow.pyfunc.model
+    env:
+      docker_env: "my_docker_image:latest"  # Specify your Docker image here
+    python_version: "3.8.13"
+mlflow_version: 2.17.1
+signature:
+  inputs: '[{"name": "text", "type": "string"}]'
+  outputs: '[{"name": "text", "type": "string"}]'

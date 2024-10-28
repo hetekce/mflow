@@ -2,6 +2,9 @@
 # 
 name: my_ml_project
 
+# You can use use conda as well instead of docker_env
+# conda_env: conda.yaml
+
 # Docker image to use for this project
 docker_env:
   # image: 012345678910.dkr.ecr.us-west-2.amazonaws.com/mlflow-docker-example-environment:7.0 remote registry
