@@ -27,7 +27,7 @@ Below files below will be automatically created once we logged the model: `conda
 export MLFLOW_TRACKING_URI=http://127.0.0.1:5000
 ```
 
-4. Once the model is logged and the uri is exported, we can serve it to use it as an api:
+4. Once the model is logged and the mlflow tracking uri is exported, we can serve it to use it as an api:
 
 ```sh
 # The command below will be printed after you successfully run the log_model.py. run_id will be catched automatically.
@@ -38,7 +38,15 @@ mlflow models serve -m runs:/$run_id/model --no-conda -p 5001
 5. You can send your queries to the api endpoint. For that i created the `tests/*`. You can run one of them to see if the api is up and running.
 
 ```sh
-cd tests/
+cd 3_mlflow_models/development_setup/tests/
+
+# To run the api test native from the cli
 chmod +x curl.sh
-./curl.sh    
+./curl.sh
+
+# To run the api as python subprocess
+python curl_api_test.py
+
+# To request the api with native python library with `input_data` parameter, which is the english text to be passed to translate
+python api_test.py input_data='It was not easy at all to create the app.'
 ```

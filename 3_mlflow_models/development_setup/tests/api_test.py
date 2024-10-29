@@ -35,4 +35,4 @@ if __name__ == '__main__':
         k, v = arg.split('=')
         args[k] = v
         
-    test_api(args)
+    test_api(**args)
